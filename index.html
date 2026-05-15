@@ -1,203 +1,234 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Contribuição para o Natan</title>
+<meta charset="UTF-8" />
+<title>Contribuição para o Natan</title>
 
-  <style>
-    body{
-      font-family: Arial, sans-serif;
-      background:#ffffff;
-      padding:20px;
-    }
+<style>
+  * { box-sizing: border-box; }
 
-    table{
-      width:800px;
-      border-collapse:collapse;
-      margin:auto;
-    }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f7;
+    padding: 25px;
+    color: #1f2d3d;
+  }
 
-    th, td{
-      border:1px solid #1f4e79;
-      padding:8px;
-      font-size:14px;
-    }
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
 
-    /* TÍTULO PRINCIPAL */
-    .titulo{
-      background:#1f4e79;
-      color:white;
-      font-size:22px;
-      font-weight:bold;
-      text-align:center;
-    }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+  }
 
-    /* CABEÇALHO */
-    .cabecalho th{
-      background:#2e75b6;
-      color:white;
-      font-weight:bold;
-      text-align:center;
-    }
+  .card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    text-align: center;
+  }
 
-    /* CENTRALIZA COLUNAS 2 E 3 (DATA E FORMA) */
-    td:nth-child(2),
-    td:nth-child(3){
-      text-align:center;
-    }
+  .card h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+  }
 
-    tbody tr{
-      background:#bdd7ee;
-    }
+  .card p {
+    margin: 8px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f4e79;
+  }
 
-    .valor{
-      text-align:right;
-    }
+  .info-topo {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
 
-    /* TOTAL */
-    .total{
-      font-weight:bold;
-      background:#9dc3e6;
-      text-align:right;
-      padding-right:10px;
-    }
+  .info-topo strong {
+    display: inline-block;
+    width: 140px;
+    color: #2e75b6;
+  }
 
-    .total-final{
-      font-weight:bold;
-      text-align:right;
-      background:#9dc3e6;
-      white-space:nowrap;
-    }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
 
-    th{
-      text-align:center;
-    }
-  </style>
+  .titulo {
+    background: linear-gradient(90deg, #1f4e79, #2e75b6);
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 14px;
+    font-weight: bold;
+  }
+
+  .cabecalho th {
+    background: #2e75b6;
+    color: white;
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #eef2f7;
+    font-size: 14px;
+  }
+
+  tbody tr:hover {
+    background: #f5f9ff;
+  }
+
+  td:nth-child(2),
+  td:nth-child(3),
+  .valor {
+    text-align: center;
+  }
+
+  .total-row td {
+    font-weight: bold;
+    background: #e8f1ff;
+  }
+
+  .total-label {
+    text-align: right;
+  }
+
+  .total-value {
+    text-align: center;
+    font-size: 16px;
+    color: #1f4e79;
+  }
+
+  @media (max-width: 768px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 
 <body>
 
+<div class="container">
+
+  <div class="cards">
+    <div class="card">
+      <h3>Total Arrecadado</h3>
+      <p id="total">R$ 0,00</p>
+    </div>
+
+    <div class="card">
+      <h3>Total de Registros</h3>
+      <p id="qtd">0</p>
+    </div>
+
+    <div class="card">
+      <h3>Doações Recebidas</h3>
+      <p id="pagos">0</p>
+    </div>
+  </div>
+
+  <div class="info-topo">
+    <div><strong>NOME:</strong>FRANCISCO JOSÉ CHAGAS DO VALE</div>
+    <div><strong>INSTITUIÇÃO:</strong>BANCO DO BRASIL</div>
+    <div><strong>CHAVE PIX:</strong>b9a7ba1a-41f8-45ea-a61c-2982f3829e0d</div>
+  </div>
+
   <table>
 
     <tr>
-      <th class="titulo" colspan="4">
-        CONTRIBUIÇÃO PARA O NATAN
-      </th>
+      <th class="titulo" colspan="4">CONTRIBUIÇÃO PARA O NATAN</th>
     </tr>
 
     <tr class="cabecalho">
       <th>NOME</th>
-      <th>DATA DO RECEBIMENTO</th>
+      <th>DATA</th>
       <th>FORMA DE CONTRIBUIÇÃO</th>
-      <th>VALOR (R$)</th>
+      <th>VALOR(R$)</th>
     </tr>
 
-    <tbody>
+    <tbody id="tabela">
 
-      <tr>
-        <td>ADALBERTO</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>ADALBERTO</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>FRANZÉ</td>
-        <td>14/05/2026</td>
-        <td>Dinheiro</td>
-        <td class="valor">R$ 40,00</td>
-      </tr>
+      <tr><td>FRANZÉ</td><td>14/05/2026</td><td>DINHEIRO</td><td class="valor">R$ 40,00</td></tr>
 
-      <tr>
-        <td>HERBENE</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>HERBENE</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>JOSÉ RAIMUNDO</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>JOSÉ RAIMUNDO</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>LUIS</td>
-        <td>15/05/2026</td>
-        <td>Dinheiro</td>
-        <td class="valor">R$ 30,00</td>
-      </tr>
+      <tr><td>LUIS</td><td>15/05/2026</td><td>DINHEIRO</td><td class="valor">R$ 30,00</td></tr>
 
-      <tr>
-        <td>MACELIANE</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>MACELIANE</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>MARCILENE</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>MARCILENE</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>MATILDE</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>MATILDE</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>RAIMUNDO</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>RAIMUNDO</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>SAMARA</td>
-        <td>15/05/2026</td>
-        <td>PIX</td>
-        <td class="valor">R$ 50,00</td>
-      </tr>
+      <tr><td>SAMARA</td><td>15/05/2026</td><td>PIX</td><td class="valor">R$ 50,00</td></tr>
 
-      <tr>
-        <td>VALBERTO</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>VALBERTO</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>VALDILENE</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><td>VALDILENE</td><td></td><td></td><td class="valor"></td></tr>
 
-      <tr>
-        <td>VALWELITON</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <!-- TOTAL AJUSTADO -->
-      <tr>
-        <td colspan="3" class="total">
-          TOTAL:
-        </td>
-        <td class="total-final">
-          R$ 120,00
-        </td>
-      </tr>
+      <tr><td>VALWELITON</td><td></td><td></td><td class="valor"></td></tr>
 
     </tbody>
 
   </table>
+
+</div>
+
+<script>
+function formatar(valor){
+  return valor.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+}
+
+let linhas = document.querySelectorAll("#tabela tr");
+let total = 0;
+let pagos = 0;
+
+linhas.forEach(linha => {
+  let texto = linha.querySelector(".valor")?.innerText.trim();
+
+  if(texto){
+    let numero = texto.replace("R$", "").replace(/\./g, "").replace(",", ".").trim();
+
+    if(!isNaN(numero) && numero !== ""){
+      total += parseFloat(numero);
+      pagos++;
+    }
+  }
+});
+
+document.getElementById("total").innerText = formatar(total);
+document.getElementById("qtd").innerText = linhas.length;
+document.getElementById("pagos").innerText = pagos;
+</script>
 
 </body>
 </html>
